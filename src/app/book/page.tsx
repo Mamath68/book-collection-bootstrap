@@ -33,7 +33,7 @@ export default function Home() {
 
     if (loading) return <p className="text-center mt-10">Chargement...</p>;
     return (
-        <div>
+        <div className="container">
             <h1>Ma Collection de Livres</h1>
             <Row>
                 {books.map((book) => (
