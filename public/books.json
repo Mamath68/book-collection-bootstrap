@@ -1,6 +1,6 @@
 [
   {
-    "id": "1",
+    "id": 1,
     "title": "Naruto",
     "author": "Masashi Kishimoto",
     "original_author": "",
@@ -22,7 +22,7 @@
     "commentaire": ""
   },
   {
-    "id": "2",
+    "id": 2,
     "title": "Skeleton Double",
     "author": "Kondo Tokaku",
     "original_author": "",
@@ -44,7 +44,7 @@
     "commentaire": ""
   },
   {
-    "id": "3",
+    "id": 3,
     "title": "Bleach",
     "author": "Tite Kubo",
     "original_author": "",
@@ -66,7 +66,7 @@
     "commentaire": "Terminé depuis 2016 au japon, un nouveau chapitre est sortis en prepublication au japon debut 2024, donc en pause."
   },
   {
-    "id": "4",
+    "id": 4,
     "title": "Yugioh!",
     "author": "Kazuki Takahashi",
     "original_author": "",
@@ -88,7 +88,7 @@
     "commentaire": ""
   },
   {
-    "id": "5",
+    "id": 5,
     "title": "Yugioh! GX",
     "author": "Naoyuki Kageyama",
     "original_author": "Kazuki Takahashi",
@@ -110,7 +110,7 @@
     "commentaire": "Manque de pot, j'ai que le dernier"
   },
   {
-    "id": "6",
+    "id": 6,
     "title": "Yugioh! 5D'S",
     "author": "Masahiro Hikokubo",
     "original_author": "Kazuki Takahashi",

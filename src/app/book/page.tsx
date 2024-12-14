@@ -1,24 +1,24 @@
 "use client";
+import {useEffect, useState} from "react";
 
 import {Card, Row, Col} from "react-bootstrap";
-import {useEffect, useState} from "react";
 /*
 import Link from "next/link";
 */
 import axios from "axios";
 
-interface Book {
+interface Page {
     id: number;
     title: string;
     img: string;
 }
 
+
 export default function Home() {
-    const [books, setBooks] = useState<Book[]>([]); // Type explicite pour l'état books
+    const [books, setBooks] = useState<Page[]>([]); // Type explicite pour l'état books
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // Utilisation d'Axios pour récupérer les livres
         axios
             .get("books.json")
             .then((response) => {
@@ -34,16 +34,17 @@ export default function Home() {
     if (loading) return <p className="text-center mt-10">Chargement...</p>;
     return (
         <div className="container">
+
             <h1>Ma Collection de Livres</h1>
             <Row>
                 {books.map((book) => (
-                    <Col md={3} sm={6} key={book.id} className="mb-4">
-                        <Card>
+                    <Col xs={12} sm={12} md={6} lg={4} xl={4} xxl={3} key={book.id} className="mb-4">
+                        <Card.Link href={`/book/${book.id}`}>
                             <Card.Img variant="top" width={25} height={450} src={book.img}/>
                             <Card.Body>
                                 <Card.Title>{book.title}</Card.Title>
                             </Card.Body>
-                        </Card>
+                        </Card.Link>
                     </Col>
                 ))}
             </Row>
