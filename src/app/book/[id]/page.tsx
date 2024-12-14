@@ -3,8 +3,7 @@
 import {useState, useEffect} from "react";
 import {useParams} from "next/navigation";
 import axios from "axios";
-import Head from "next/head";
-import {Card} from "react-bootstrap"; // Importer Head pour manipuler le titre de la page
+import {Card, Container} from "react-bootstrap"; // Importer Head pour manipuler le titre de la page
 
 interface Book {
     id: number;
@@ -48,12 +47,7 @@ export default function BookDetail() {
     if (error) return <p>{error}</p>;
 
     return (
-        <div className="container mt-5">
-            {/* Utilisation de next/head pour définir le titre de la page dynamique */}
-            <Head>
-                <title>{book ? book.title : "Détail du Livre"}</title>
-            </Head>
-
+        <Container className="mt-5">
             {book ? (
                 <Card>
                     <Card.Img
@@ -65,12 +59,12 @@ export default function BookDetail() {
                     <Card.Body>
                         <Card.Title>{book.title}</Card.Title>
                         <Card.Subtitle className="mb-2 text-muted">Auteur: {book.author}</Card.Subtitle>
-                        <Card.Text>{book.commentaire}</Card.Text>
+                        {book.commentaire && <Card.Text>{book.commentaire}</Card.Text>}
                     </Card.Body>
                 </Card>
             ) : (
                 <p>Livre non trouvé</p>
             )}
-        </div>
+        </Container>
     );
 }

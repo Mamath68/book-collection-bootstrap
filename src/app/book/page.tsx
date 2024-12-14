@@ -1,7 +1,7 @@
 "use client";
 import {useEffect, useState} from "react";
 
-import {Card, Row, Col} from "react-bootstrap";
+import {Card, Row, Col, Container} from "react-bootstrap";
 /*
 import Link from "next/link";
 */
@@ -33,21 +33,21 @@ export default function Home() {
 
     if (loading) return <p className="text-center mt-10">Chargement...</p>;
     return (
-        <div className="container">
+        <Container>
 
-            <h1>Ma Collection de Livres</h1>
+            <h1 className="text-center">Ma Collection de Livres</h1>
             <Row>
                 {books.map((book) => (
                     <Col xs={12} sm={12} md={6} lg={4} xl={4} xxl={3} key={book.id} className="mb-4">
                         <Card.Link href={`/book/${book.id}`}>
-                            <Card.Img variant="top" width={25} height={450} src={book.img}/>
-                            <Card.Body>
+                            <Card.Body style={{textAlign: "center"}}>
                                 <Card.Title>{book.title}</Card.Title>
                             </Card.Body>
+                            <Card.Img variant="top" width={25} height={450} src={book.img}/>
                         </Card.Link>
                     </Col>
                 ))}
             </Row>
-        </div>
+        </Container>
     );
 }
