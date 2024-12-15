@@ -105,7 +105,7 @@ export default function BookDetail() {
                                         <Card.Text>Éditeur : {book.editeur}</Card.Text>
                                     </Col>
                                     <Col xs={12} md={6}>
-                                        <Card.Text>Type : {book.type}</Card.Text>
+                                        <Card.Text>Type de Livre : {book.type}</Card.Text>
                                     </Col>
                                     <Col xs={12} md={6}>
                                         <Card.Text>Genre : {book.genre}</Card.Text>
@@ -124,16 +124,16 @@ export default function BookDetail() {
                             <ListGroup className="list-group-flush">
                                 <Row>
                                     <Col xs={12} md={6}>
-                                        <ListGroupItem>Publié VO : {book.published_vo}</ListGroupItem>
+                                        <ListGroupItem>Première Publication VO : {book.published_vo}</ListGroupItem>
                                     </Col>
                                     <Col xs={12} md={6}>
-                                        <ListGroupItem>Publié VF : {book.published_vf}</ListGroupItem>
+                                        <ListGroupItem>Première publication VF : {book.published_vf}</ListGroupItem>
                                     </Col>
                                     <Col xs={12} md={6}>
-                                        <ListGroupItem>Fin publication VO : {book.end_publication_vo}</ListGroupItem>
+                                        <ListGroupItem>Dernière publication VO : {book.end_publication_vo}</ListGroupItem>
                                     </Col>
                                     <Col xs={12} md={6}>
-                                        <ListGroupItem>Fin publication VF : {book.end_publication_vf}</ListGroupItem>
+                                        <ListGroupItem>Dernière publication VF : {book.end_publication_vf}</ListGroupItem>
                                     </Col>
                                     <Col xs={12} md={6}>
                                         <ListGroupItem>Quantité possédée : {book.quantite_possede}</ListGroupItem>
@@ -142,10 +142,10 @@ export default function BookDetail() {
                                         <ListGroupItem>Volumes possédés : {book.volumes_possede}</ListGroupItem>
                                     </Col>
                                     <Col xs={12} md={6}>
-                                        <ListGroupItem>Total volumes VO : {book.volumes_total_vo}</ListGroupItem>
+                                        <ListGroupItem>Volumes total VO : {book.volumes_total_vo}</ListGroupItem>
                                     </Col>
                                     <Col xs={12} md={6}>
-                                        <ListGroupItem>Total volumes VF : {book.volumes_total_vf}</ListGroupItem>
+                                        <ListGroupItem>Volumes total VF : {book.volumes_total_vf}</ListGroupItem>
                                     </Col>
                                     <Col xs={12} md={6}>
                                         <ListGroupItem>Status VO : {book.status_vo}</ListGroupItem>
