@@ -16,7 +16,7 @@ export default function Navbar() {
             className="mb-3"
             fill
         >
-            <Tab eventKey="/home" title="Accueil"/>
+            <Tab eventKey="/" title="Accueil"/>
             <Tab eventKey="/book" title="Livres"/>
         </Tabs>
     );

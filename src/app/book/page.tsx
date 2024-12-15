@@ -59,24 +59,28 @@ export default function Home() {
                 ))}
             </Row>
             {/* Pagination */}
-            <Pagination className="mt-4 justify-content-center">
-                <Pagination.First onClick={() => handlePageChange(1)} disabled={currentPage === 1}/>
-                <Pagination.Prev onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}/>
+            {totalPages > 8 && (
 
-                {Array.from({length: totalPages}, (_, i) => i + 1).map((pageNumber) => (
-                    <Pagination.Item
-                        key={pageNumber}
-                        active={pageNumber === currentPage}
-                        onClick={() => handlePageChange(pageNumber)}
-                    >
-                        {pageNumber}
-                    </Pagination.Item>
-                ))}
+                <Pagination className="mt-4 justify-content-center">
+                    <Pagination.First onClick={() => handlePageChange(1)} disabled={currentPage === 1}/>
+                    <Pagination.Prev onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}/>
 
-                <Pagination.Next onClick={() => handlePageChange(currentPage + 1)}
-                                 disabled={currentPage === totalPages}/>
-                <Pagination.Last onClick={() => handlePageChange(totalPages)} disabled={currentPage === totalPages}/>
-            </Pagination>
+                    {Array.from({length: totalPages}, (_, i) => i + 1).map((pageNumber) => (
+                        <Pagination.Item
+                            key={pageNumber}
+                            active={pageNumber === currentPage}
+                            onClick={() => handlePageChange(pageNumber)}
+                        >
+                            {pageNumber}
+                        </Pagination.Item>
+                    ))}
+
+                    <Pagination.Next onClick={() => handlePageChange(currentPage + 1)}
+                                     disabled={currentPage === totalPages}/>
+                    <Pagination.Last onClick={() => handlePageChange(totalPages)}
+                                     disabled={currentPage === totalPages}/>
+                </Pagination>
+            )}
         </Container>
     );
 }
