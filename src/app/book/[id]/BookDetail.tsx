@@ -3,7 +3,7 @@
 import {Card, Col, Container, ListGroup, ListGroupItem, Row} from "react-bootstrap";
 
 interface Book {
-    id: number;
+    id: number|string;
     title: string;
     author: string;
     original_author?: string;
