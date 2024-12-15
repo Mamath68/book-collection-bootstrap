@@ -9,7 +9,7 @@ async function fetchBookData(id: string) {
     const data = await fs.readFile(filePath, "utf-8");
     const books = JSON.parse(data);
 
-    return books.find((book: { id: number }) => book.id === parseInt(id));
+    return books.find((book: { id: string }) => book.id === id);
 }
 
 // Génération dynamique des métadonnées
