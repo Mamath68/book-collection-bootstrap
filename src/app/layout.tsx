@@ -5,7 +5,6 @@ import './globals.css';
 import styles from "./page.module.css";
 import {ReactNode} from "react";
 import Navbar from "@/app/navbar";
-import Image from "next/image";
 
 
 const geistSans = Geist({
