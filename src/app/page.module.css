@@ -40,16 +40,11 @@
         background: var(--button-secondary-hover);
         border-color: transparent;
     }
-
-    .footer a:hover {
-        text-decoration: underline;
-        text-underline-offset: 4px;
-    }
 }
 
 @media (max-width: 600px) {
     .page {
-        padding: 32px;
+        padding: 1rem;
     }
 
     .main {
@@ -60,24 +55,8 @@
         text-align: center;
     }
 
-    .ctas {
-        flex-direction: column;
-    }
-
-    .ctas a {
-        font-size: 14px;
-        height: 40px;
-        padding: 0 16px;
-    }
-
     a.secondary {
         min-width: auto;
-    }
-
-    .footer {
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
     }
 }
 

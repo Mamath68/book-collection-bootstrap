@@ -63,11 +63,11 @@ export default function BookDetail() {
     if (error) return <p>{error}</p>;
 
     return (
-        <Container>
+        <Container className="my-0 py-0">
             {book ? (
                 <Row className="d-flex align-items-center">
                     {/* Image du livre */}
-                    <Col xs={12} md={4} className="my-0 my-md-0">
+                    <Col xs={12} md={4} className="my-0 py-0">
                         <Card.Img
                             src={book.img}
                             alt={`Couverture de ${book.title}`}
@@ -77,10 +77,9 @@ export default function BookDetail() {
                     </Col>
 
                     {/* Détails du livre */}
-                    <Col xs={12} md={8}>
-                        <Card className="h-100">
+                    <Col xs={12} md={8} className="my-0 py-0">
+                        <Card>
                             <Card.Body>
-                                {/* Titre et sous-titre */}
                                 <Row>
                                     <Col xs={12}>
                                         <Card.Title className="mb-4">{book.title}</Card.Title>
@@ -132,9 +131,9 @@ export default function BookDetail() {
                                     </Col>
                                     <Col xs={12} md={6}>
                                         {book.id == "7" ?
-                                            <ListGroupItem>Première publication en
+                                            <ListGroupItem>Première Publication en
                                                 France: {book.published_vf}</ListGroupItem> :
-                                            <ListGroupItem>Première publication VF : {book.published_vf}</ListGroupItem>
+                                            <ListGroupItem>Première Publication VF : {book.published_vf}</ListGroupItem>
                                         }
 
                                     </Col>
