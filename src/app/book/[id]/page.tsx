@@ -1,6 +1,7 @@
 import BookDetail from "./BookDetail";
 import path from "path";
 import {promises as fs} from "fs";
+import {Metadata} from "next";
 
 // Lecture des données locales
 async function fetchBookData(id: string) {
@@ -12,7 +13,7 @@ async function fetchBookData(id: string) {
 }
 
 
-export async function generateMetadata({params}: { params: { id: string } }) {
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
     const book = await fetchBookData(params.id);
 
     if (!book) {
