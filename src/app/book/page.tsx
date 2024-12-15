@@ -51,16 +51,14 @@ export default function Home() {
                     <Col xs={12} sm={12} md={6} lg={4} xl={4} xxl={3} key={book.id} className="mb-4">
                         <Card.Link href={`/book/${book.id}`}>
                             <Card.Body style={{textAlign: "center"}}>
-                                <Card.Title>{book.title}</Card.Title>
+                                <Card.Title className="py-2">{book.title}</Card.Title>
                             </Card.Body>
                             <Card.Img variant="top" width={25} height={450} src={book.img}/>
                         </Card.Link>
                     </Col>
                 ))}
             </Row>
-            {/* Pagination */}
-            {totalPages > 8 && (
-
+            {booksPerPage >= 8 && (
                 <Pagination className="mt-4 justify-content-center">
                     <Pagination.First onClick={() => handlePageChange(1)} disabled={currentPage === 1}/>
                     <Pagination.Prev onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}/>
@@ -75,10 +73,12 @@ export default function Home() {
                         </Pagination.Item>
                     ))}
 
-                    <Pagination.Next onClick={() => handlePageChange(currentPage + 1)}
-                                     disabled={currentPage === totalPages}/>
-                    <Pagination.Last onClick={() => handlePageChange(totalPages)}
-                                     disabled={currentPage === totalPages}/>
+                    <Pagination.Next
+                        onClick={() => handlePageChange(currentPage + 1)}
+                        disabled={currentPage === totalPages}/>
+                    <Pagination.Last
+                        onClick={() => handlePageChange(totalPages)}
+                        disabled={currentPage === totalPages}/>
                 </Pagination>
             )}
         </Container>

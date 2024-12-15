@@ -124,16 +124,34 @@ export default function BookDetail() {
                             <ListGroup className="list-group-flush">
                                 <Row>
                                     <Col xs={12} md={6}>
-                                        <ListGroupItem>Première Publication VO : {book.published_vo}</ListGroupItem>
+                                        {book.id == "7" ?
+                                            <ListGroupItem>Première Publication au Japon
+                                                : {book.published_vo}</ListGroupItem> :
+                                            <ListGroupItem>Première Publication VO : {book.published_vo}</ListGroupItem>
+                                        }
                                     </Col>
                                     <Col xs={12} md={6}>
-                                        <ListGroupItem>Première publication VF : {book.published_vf}</ListGroupItem>
+                                        {book.id == "7" ?
+                                            <ListGroupItem>Première publication en
+                                                France: {book.published_vf}</ListGroupItem> :
+                                            <ListGroupItem>Première publication VF : {book.published_vf}</ListGroupItem>
+                                        }
+
                                     </Col>
                                     <Col xs={12} md={6}>
-                                        <ListGroupItem>Dernière publication VO : {book.end_publication_vo}</ListGroupItem>
+                                        {book.id == "7" ?
+                                            <ListGroupItem>Dernière publication au Japon
+                                                : {book.end_publication_vo}</ListGroupItem> :
+                                            <ListGroupItem>Dernière publication VO
+                                                : {book.end_publication_vo}</ListGroupItem>
+                                        }
                                     </Col>
                                     <Col xs={12} md={6}>
-                                        <ListGroupItem>Dernière publication VF : {book.end_publication_vf}</ListGroupItem>
+                                        {book.id == "7" ?
+                                            <ListGroupItem>Dernière publication en
+                                                France: {book.end_publication_vf}</ListGroupItem> :
+                                            <ListGroupItem>Dernière publication VF : {book.end_publication_vf}</ListGroupItem>
+                                        }
                                     </Col>
                                     <Col xs={12} md={6}>
                                         <ListGroupItem>Quantité possédée : {book.quantite_possede}</ListGroupItem>
@@ -142,16 +160,29 @@ export default function BookDetail() {
                                         <ListGroupItem>Volumes possédés : {book.volumes_possede}</ListGroupItem>
                                     </Col>
                                     <Col xs={12} md={6}>
-                                        <ListGroupItem>Volumes total VO : {book.volumes_total_vo}</ListGroupItem>
+                                        {book.id == "7" ?
+                                            <ListGroupItem>Volumes total au Japon : {book.volumes_total_vo}</ListGroupItem> :
+                                            <ListGroupItem>Volumes total VO : {book.volumes_total_vo}</ListGroupItem>
+                                        }
+
                                     </Col>
                                     <Col xs={12} md={6}>
-                                        <ListGroupItem>Volumes total VF : {book.volumes_total_vf}</ListGroupItem>
+                                        {book.id == "7" ?
+                                            <ListGroupItem>Volumes total en France : {book.volumes_total_vo}</ListGroupItem> :
+                                            <ListGroupItem>Volumes total VF : {book.volumes_total_vo}</ListGroupItem>
+                                        }
                                     </Col>
                                     <Col xs={12} md={6}>
-                                        <ListGroupItem>Status VO : {book.status_vo}</ListGroupItem>
+                                        {book.id == "7" ?
+                                            <ListGroupItem>Status au Japon : {book.status_vo}</ListGroupItem> :
+                                            <ListGroupItem>Status VO : {book.status_vo}</ListGroupItem>
+                                        }
                                     </Col>
                                     <Col xs={12} md={6}>
-                                        <ListGroupItem>Status VF : {book.status_vf}</ListGroupItem>
+                                        {book.id == "7" ?
+                                            <ListGroupItem>Status en France : {book.status_vf}</ListGroupItem> :
+                                            <ListGroupItem>Status VF : {book.status_vf}</ListGroupItem>
+                                        }
                                     </Col>
                                 </Row>
                             </ListGroup>
