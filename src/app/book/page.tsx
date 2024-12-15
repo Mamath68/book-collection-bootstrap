@@ -13,7 +13,6 @@ interface Page {
     img: string;
 }
 
-
 export default function Home() {
     const [books, setBooks] = useState<Page[]>([]); // Type explicite pour l'état books
     const [loading, setLoading] = useState(true);

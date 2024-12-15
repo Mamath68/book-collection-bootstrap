@@ -1,70 +1,41 @@
-"use client"; // Indique que ce composant doit être exécuté côté client
+import {Metadata} from "next";
+import BookDetail from "./BookDetail";
+import path from "path";
+import {promises as fs} from "fs";
 
-import {useState, useEffect} from "react";
-import {useParams} from "next/navigation";
-import axios from "axios";
-import {Card, Container} from "react-bootstrap"; // Importer Head pour manipuler le titre de la page
+// Fonction pour récupérer les données du fichier JSON
+async function fetchBookData(id: string) {
+    const filePath = path.join(process.cwd(), "public", "books.json");
+    const data = await fs.readFile(filePath, "utf-8");
+    const books = JSON.parse(data);
 
-interface Book {
-    id: number;
-    title: string;
-    author: string;
-    img: string;
-    commentaire: string;
+    return books.find((book: { id: number }) => book.id === parseInt(id));
 }
 
-export default function BookDetail() {
-    const [book, setBook] = useState<Book | null>(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
+// Génération dynamique des métadonnées
+export async function generateMetadata({params}: { params: { id: string } }): Promise<Metadata> {
+    const book = await fetchBookData(params.id);
 
-    const params = useParams(); // Récupère les paramètres de l'URL
-    const {id} = params; // Accède à l'ID du livre
+    if (!book) {
+        return {
+            title: "Livre non trouvé",
+            description: "Ce livre n'existe pas dans votre collection.",
+        };
+    }
 
+    return {
+        title: book.title,
+        description: `Découvrez les détails du livre "${book.title}" écrit par ${book.author}.`,
+    };
+}
 
-    useEffect(() => {
-        if (id) {
-            axios
-                .get("/books.json") // Accéder au fichier JSON local
-                .then((response) => {
-                    const foundBook = response.data.find((b: { id: number }) => b.id === parseInt(id as string));
-                    if (foundBook) {
-                        setBook(foundBook);
-                    } else {
-                        setError("Livre non trouvé");
-                    }
-                    setLoading(false);
-                })
-                .catch((error) => {
-                    console.error("Erreur lors de la récupération des détails du livre :", error);
-                    setError("Une erreur s'est produite.");
-                    setLoading(false);
-                });
-        }
-    }, [id]); // Réexécuter l'effet chaque fois que l'ID change
+// Composant principal de la page
+export default async function BookPage({params}: { params: { id: string } }) {
+    const book = await fetchBookData(params.id);
 
-    if (loading) return <p>Chargement...</p>;
-    if (error) return <p>{error}</p>;
+    if (!book) {
+        return <div>Livre non trouvé</div>;
+    }
 
-    return (
-        <Container className="mt-5">
-            {book ? (
-                <Card>
-                    <Card.Img
-                        src={book.img || "https://via.placeholder.com/150"}
-                        alt={book.title}
-                        className="card-img-top"
-                        style={{height: "300px", objectFit: "cover"}}
-                    />
-                    <Card.Body>
-                        <Card.Title>{book.title}</Card.Title>
-                        <Card.Subtitle className="mb-2 text-muted">Auteur: {book.author}</Card.Subtitle>
-                        {book.commentaire && <Card.Text>{book.commentaire}</Card.Text>}
-                    </Card.Body>
-                </Card>
-            ) : (
-                <p>Livre non trouvé</p>
-            )}
-        </Container>
-    );
+    return <BookDetail book={book}/>;
 }
