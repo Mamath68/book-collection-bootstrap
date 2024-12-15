@@ -1,10 +1,8 @@
 "use client";
 import {useEffect, useState} from "react";
 
-import {Card, Row, Col, Container} from "react-bootstrap";
-/*
-import Link from "next/link";
-*/
+import {Card, Row, Col, Pagination, Container} from "react-bootstrap";
+
 import axios from "axios";
 
 interface Page {
@@ -16,6 +14,8 @@ interface Page {
 export default function Home() {
     const [books, setBooks] = useState<Page[]>([]); // Type explicite pour l'état books
     const [loading, setLoading] = useState(true);
+    const booksPerPage = 8; // Nombre de livres par page
+    const [currentPage, setCurrentPage] = useState(1);
 
     useEffect(() => {
         axios
@@ -30,13 +30,24 @@ export default function Home() {
             });
     }, []);
 
+
+    // Calcul des indices pour découper les livres
+    const indexOfLastBook = currentPage * booksPerPage;
+    const indexOfFirstBook = indexOfLastBook - booksPerPage;
+    const currentBooks = books.slice(indexOfFirstBook, indexOfLastBook);
+
+    const totalPages = Math.ceil(books.length / booksPerPage);
+
+    const handlePageChange = (pageNumber: number) => {
+        setCurrentPage(pageNumber);
+    };
+
     if (loading) return <p className="text-center mt-10">Chargement...</p>;
     return (
         <Container>
-
             <h1 className="text-center">Ma Collection de Livres</h1>
             <Row>
-                {books.map((book) => (
+                {currentBooks.map((book) => (
                     <Col xs={12} sm={12} md={6} lg={4} xl={4} xxl={3} key={book.id} className="mb-4">
                         <Card.Link href={`/book/${book.id}`}>
                             <Card.Body style={{textAlign: "center"}}>
@@ -47,6 +58,25 @@ export default function Home() {
                     </Col>
                 ))}
             </Row>
+            {/* Pagination */}
+            <Pagination className="mt-4 justify-content-center">
+                <Pagination.First onClick={() => handlePageChange(1)} disabled={currentPage === 1}/>
+                <Pagination.Prev onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}/>
+
+                {Array.from({length: totalPages}, (_, i) => i + 1).map((pageNumber) => (
+                    <Pagination.Item
+                        key={pageNumber}
+                        active={pageNumber === currentPage}
+                        onClick={() => handlePageChange(pageNumber)}
+                    >
+                        {pageNumber}
+                    </Pagination.Item>
+                ))}
+
+                <Pagination.Next onClick={() => handlePageChange(currentPage + 1)}
+                                 disabled={currentPage === totalPages}/>
+                <Pagination.Last onClick={() => handlePageChange(totalPages)} disabled={currentPage === totalPages}/>
+            </Pagination>
         </Container>
     );
 }
