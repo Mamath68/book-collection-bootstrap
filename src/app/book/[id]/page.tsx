@@ -67,7 +67,7 @@ export default function BookDetail() {
             {book ? (
                 <Row className="d-flex align-items-center">
                     {/* Image du livre */}
-                    <Col xs={12} md={4} className="mb-md-0">
+                    <Col xs={12} md={4} className="mb-0 mb-md-0">
                         <Card.Img
                             src={book.img}
                             alt={`Couverture de ${book.title}`}
