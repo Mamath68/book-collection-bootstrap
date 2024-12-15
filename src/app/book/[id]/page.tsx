@@ -63,11 +63,11 @@ export default function BookDetail() {
     if (error) return <p>{error}</p>;
 
     return (
-        <Container className="mt-5">
+        <Container>
             {book ? (
                 <Row className="d-flex align-items-center">
                     {/* Image du livre */}
-                    <Col xs={12} md={4} className="mb-4 mb-md-0">
+                    <Col xs={12} md={4} className="mb-md-0">
                         <Card.Img
                             src={book.img}
                             alt={`Couverture de ${book.title}`}

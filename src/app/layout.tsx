@@ -36,9 +36,6 @@ export default function RootLayout({children}: Readonly<{
                 {children}
             </main>
         </div>
-        <footer className={styles.footer}>
-            <p>The Footer</p>
-        </footer>
         </body>
         </html>
     );

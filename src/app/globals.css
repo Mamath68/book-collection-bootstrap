@@ -58,16 +58,6 @@ a {
     text-decoration: none;
 }
 
-footer {
-    text-align: center;
-    background-color: var(--invert-background);
-    padding: 1.5rem;
-
-    & p {
-        color: var(--invert-foreground);
-    }
-}
-
 @media (prefers-color-scheme: dark) {
     html {
         color-scheme: dark;
