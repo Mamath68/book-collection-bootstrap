@@ -3,7 +3,7 @@ import BookDetail from "./BookDetail";
 import path from "path";
 import {promises as fs} from "fs";
 
-// Fonction pour récupérer les données du fichier JSON
+// Lecture des données locales
 async function fetchBookData(id: string) {
     const filePath = path.join(process.cwd(), "public", "books.json");
     const data = await fs.readFile(filePath, "utf-8");
@@ -12,11 +12,12 @@ async function fetchBookData(id: string) {
     return books.find((book: { id: string }) => book.id === id);
 }
 
-// Génération dynamique des métadonnées
-export async function generateMetadata({params}: { params: { id: string } }): Promise<Metadata> {
+
+export async function generateMetadata({params}: { params: { id: string } }) {
     const book = await fetchBookData(params.id);
 
     if (!book) {
+        console.error("Livre non trouvé pour l'ID :", params.id);
         return {
             title: "Livre non trouvé",
             description: "Ce livre n'existe pas dans votre collection.",
