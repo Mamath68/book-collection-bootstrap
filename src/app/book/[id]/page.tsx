@@ -1,4 +1,3 @@
-import {Metadata} from "next";
 import BookDetail from "./BookDetail";
 import path from "path";
 import {promises as fs} from "fs";
