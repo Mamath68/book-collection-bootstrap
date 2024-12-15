@@ -111,7 +111,7 @@ export default function BookDetail() {
                                         <Card.Text>Genre : {book.genre}</Card.Text>
                                     </Col>
                                     {book.commentaire && (
-                                        <Col xs={12}>
+                                        <Col xs={12} className="my-4">
                                             <Card.Text>
                                                 <strong>Commentaire :</strong> {book.commentaire}
                                             </Card.Text>
