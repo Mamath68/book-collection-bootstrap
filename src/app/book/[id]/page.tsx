@@ -71,7 +71,7 @@ export default function BookDetail() {
                         <Card.Img
                             src={book.img}
                             alt={`Couverture de ${book.title}`}
-                            style={{height: "48rem", objectFit: "contain"}}
+                            style={{height: "35rem", objectFit: "contain"}}
                             className="img-fluid"
                         />
                     </Col>
