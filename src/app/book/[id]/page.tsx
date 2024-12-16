@@ -124,21 +124,6 @@ export default function BookDetail() {
                                 <Row>
                                     <Col xs={12} md={6}>
                                         {book.id == "7" ?
-                                            <ListGroupItem>Première Publication au Japon
-                                                : {book.published_vo}</ListGroupItem> :
-                                            <ListGroupItem>Première Publication VO : {book.published_vo}</ListGroupItem>
-                                        }
-                                    </Col>
-                                    <Col xs={12} md={6}>
-                                        {book.id == "7" ?
-                                            <ListGroupItem>Première Publication en
-                                                France: {book.published_vf}</ListGroupItem> :
-                                            <ListGroupItem>Première Publication VF : {book.published_vf}</ListGroupItem>
-                                        }
-
-                                    </Col>
-                                    <Col xs={12} md={6}>
-                                        {book.id == "7" ?
                                             <ListGroupItem>Dernière publication au Japon
                                                 : {book.end_publication_vo}</ListGroupItem> :
                                             <ListGroupItem>Dernière publication VO
