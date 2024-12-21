@@ -1,9 +1,8 @@
 "use client";
+
 import {useEffect, useState} from "react";
-
-import {Card, Row, Col, Pagination, Container} from "react-bootstrap";
-
 import axios from "axios";
+import {Card, Row, Col, Pagination, Container} from "react-bootstrap";
 
 interface Page {
     id: number;
