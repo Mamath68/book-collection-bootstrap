@@ -16,7 +16,7 @@ export default function Home() {
             <h3>Je n&#39;ai pas trouvé les informations concernant les BD, où alors
                 les sources ne sont pas forcement fiable ou complète. Vous ne verrez donc que les Mangas.</h3>
             <h4>Pour plus d&#39;infos concernant les BD, faudra me demander des détails.</h4>
-            <h5>Je vous souhaite bonne <Link href="/book">navigation</Link></h5>
+            <h5>Je vous souhaite bonne <Link href="/book" title="Lien vers les livres">navigation</Link></h5>
         </Container>
     );
 }
