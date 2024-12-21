@@ -1,45 +1,50 @@
 "use client";
 
-import React, {useState} from "react";
-import {Button, Modal, Table} from "react-bootstrap";
+import React, { useState } from "react";
+import { Button, Modal, Table } from "react-bootstrap";
 
-export default function TableOfContentsModal({keywords}: { keywords: string[] }) {
-    const [show, setShow] = useState(false);
+interface Keyword {
+  word: string;
+  definition: string;
+}
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+export default function TableOfContentsModal({ keywords }: { keywords: Keyword[] }) {
+  const [show, setShow] = useState(false);
 
-    return (
-        <>
-            {/* Bouton pour ouvrir le modal */}
-            <Button variant="primary" onClick={handleShow} className="position-fixed bottom-0 end-0 m-3">
-                Table des matières
-            </Button>
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
-            {/* Modal */}
-            <Modal show={show} onHide={handleClose} centered>
-                <Modal.Header closeButton>
-                    <Modal.Title className="text-black">Table des matières</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <Table striped bordered hover>
-                        <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Mot-clé</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {keywords.map((keyword, index) => (
-                            <tr key={index}>
-                                <td>{index + 1}</td>
-                                <td>{keyword}</td>
-                            </tr>
-                        ))}
-                        </tbody>
-                    </Table>
-                </Modal.Body>
-            </Modal>
-        </>
-    );
+  return (
+    <>
+      {/* Bouton pour ouvrir le modal */}
+      <Button variant="primary" onClick={handleShow} className="position-fixed bottom-0 end-0 m-3">
+        Table des matières
+      </Button>
+
+      {/* Modal */}
+      <Modal show={show} onHide={handleClose} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Table des matières</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>Mot-clé</th>
+                <th>Définition</th>
+              </tr>
+            </thead>
+            <tbody>
+              {keywords.map((keyword, index) => (
+                <tr key={index}>
+                  <td>{keyword.word}</td>
+                  <td>{keyword.definition}</td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </Modal.Body>
+      </Modal>
+    </>
+  );
 }

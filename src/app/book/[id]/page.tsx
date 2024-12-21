@@ -61,10 +61,30 @@ export default function BookDetail() {
     }, [id, book]);
 
     const keywords = [
-        "Quelque definitions utile a mon sens",
-        "Manhua = Manga Chinois",
-        "Manhwa = Manga Coreen",
-        "Manga-Globale = Manga d'origine autre que japonaise. par exemple, france ou etats-unis. différent du manhua ou manhwa",
+        {
+            word: "Introduction",
+            definition: "Quelque definitions utile à mon sens"
+        },
+        {
+            word: "Manhua",
+            definition: "Ce sont les mangas Chinois"
+        },
+        {
+            word: "Manhwa",
+            definition: "Ce sont les mangas Corréens"
+        },
+        {
+            word: "Global-Mangas",
+            definition: "Manga dont l'auteur n'est pas japonais, ou, n'as pas pu être publié au japon pour des question financière. Généralement, ce sont des mangas provenant de et/ou publié en Europeou aux Etats-unis."
+        },
+        {
+            word: "Ancien Kazé",
+            definition: "Crunchyroll est une société ayant racheté Kazé, de ce fait, les mangas édité chez kazé le sont désormais sous le nom de crunchyroll."
+        },
+        {
+            word: ", et -",
+            definition: "La virgule représente un \"et\", par exemple \"13, 18\". Le tiret reprénte \"à\", par exemple \"13-18\"."
+        },
     ]; // Exemple de mots-clés
     if (loading) return <p>Chargement...</p>;
     if (error) return <p>{error}</p>;
