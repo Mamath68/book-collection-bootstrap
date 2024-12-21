@@ -400,26 +400,6 @@
     "commentaire": ""
   },
   {
-    "id": "21",
-    "title": "Lamex",
-    "author": "Bernard Riebel",
-    "original_author": "",
-    "illustrator": "Stéphane Censi",
-    "editeur": "Edition du Bastberg",
-    "img": "https://www.bedetheque.com/media/Couvertures/Couv_363799.jpg",
-    "type": "Bande Dessinée",
-    "genre": "Heroic Fantasy - Magie",
-    "end_publication_vo": 2021,
-    "end_publication_vf": 2021,
-    "quantite_possede": 1,
-    "volumes_possede": 1,
-    "volumes_total_vo": 2,
-    "volumes_total_vf": 2,
-    "status_vo": "En Cours de Production",
-    "status_vf": "En Cours de Production",
-    "commentaire": "BD d'origine française"
-  },
-  {
     "id": "22",
     "title": "The Rising of the Shield Hero",
     "author": "Aiya Kyu",

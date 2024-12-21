@@ -22,7 +22,7 @@ export default function TableOfContentsModal({ keywords }: { keywords: Keyword[]
       </Button>
 
       {/* Modal */}
-      <Modal show={show} onHide={handleClose} centered>
+      <Modal show={show} onHide={handleClose} size="xl" centered>
         <Modal.Header closeButton>
           <Modal.Title>Table des matières</Modal.Title>
         </Modal.Header>
