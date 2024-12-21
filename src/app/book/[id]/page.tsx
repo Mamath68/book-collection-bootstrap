@@ -4,6 +4,7 @@ import {useState, useEffect} from "react";
 import {useParams} from "next/navigation";
 import {Card, Col, Container, ListGroup, ListGroupItem, Row} from "react-bootstrap";
 import axios from "axios";
+import TableOfContentsModal from "@/app/tableOfContentModal";
 
 interface Book {
     id: string;
@@ -59,6 +60,12 @@ export default function BookDetail() {
         }
     }, [id, book]);
 
+    const keywords = [
+        "Quelque definitions utile a mon sens",
+        "Manhua = Manga Chinois",
+        "Manhwa = Manga Coreen",
+        "Manga-Globale = Manga d'origine autre que japonaise. par exemple, france ou etats-unis. différent du manhua ou manhwa",
+    ]; // Exemple de mots-clés
     if (loading) return <p>Chargement...</p>;
     if (error) return <p>{error}</p>;
 
@@ -134,7 +141,8 @@ export default function BookDetail() {
                                         {book.id == "7" ?
                                             <ListGroupItem>Dernière publication en
                                                 France: {book.end_publication_vf}</ListGroupItem> :
-                                            <ListGroupItem>Dernière publication VF : {book.end_publication_vf}</ListGroupItem>
+                                            <ListGroupItem>Dernière publication VF
+                                                : {book.end_publication_vf}</ListGroupItem>
                                         }
                                     </Col>
                                     <Col xs={12} md={6}>
@@ -145,15 +153,17 @@ export default function BookDetail() {
                                     </Col>
                                     <Col xs={12} md={6}>
                                         {book.id == "7" ?
-                                            <ListGroupItem>Volumes total au Japon : {book.volumes_total_vo}</ListGroupItem> :
+                                            <ListGroupItem>Volumes total au Japon
+                                                : {book.volumes_total_vo}</ListGroupItem> :
                                             <ListGroupItem>Volumes total VO : {book.volumes_total_vo}</ListGroupItem>
                                         }
 
                                     </Col>
                                     <Col xs={12} md={6}>
                                         {book.id == "7" ?
-                                            <ListGroupItem>Volumes total en France : {book.volumes_total_vo}</ListGroupItem> :
-                                            <ListGroupItem>Volumes total VF : {book.volumes_total_vo}</ListGroupItem>
+                                            <ListGroupItem>Volumes total en France
+                                                : {book.volumes_total_vf}</ListGroupItem> :
+                                            <ListGroupItem>Volumes total VF : {book.volumes_total_vf}</ListGroupItem>
                                         }
                                     </Col>
                                     <Col xs={12} md={6}>
@@ -176,6 +186,7 @@ export default function BookDetail() {
             ) : (
                 <p>Aucun détail trouvé pour ce livre.</p>
             )}
+            <TableOfContentsModal keywords={keywords}/>
         </Container>
     );
 }
