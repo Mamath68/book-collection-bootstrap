@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function Home() {
     return (
         <Container className="text-center">
-            <h1>Bonjours à tous et Bienvenue sur mon site</h1>
+            <h1>Bonjour à tous et Bienvenue sur mon site</h1>
             <h2>Ceci est ma nouvelle et dernière version de ma collection de livres.</h2>
             <h3>Je n&#39;ai pas trouvé les informations concernant les BD, où alors
                 les sources ne sont pas forcement fiable ou complète. Vous ne verrez donc que les Mangas.</h3>
