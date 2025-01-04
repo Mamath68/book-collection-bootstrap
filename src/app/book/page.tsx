@@ -52,7 +52,7 @@ export default function Home() {
                             <Card.Body style={{textAlign: "center"}}>
                                 <Card.Title className="py-2">{book.title}</Card.Title>
                             </Card.Body>
-                            <Card.Img variant="top" width={25} height={450} src={book.img}/>
+                            <Card.Img variant="top" alt={book.title} title={book.title} width={25} height={450} src={book.img}/>
                         </Card.Link>
                     </Col>
                 ))}
