@@ -28,7 +28,7 @@ export default function RootLayout({children}: Readonly<{
     return (
         <html lang="en">
         <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <header>
+        <header aria-hidden={true}>
             <Navbar/>
         </header>
         <div className={styles.page}>
