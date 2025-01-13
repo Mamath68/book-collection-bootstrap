@@ -91,13 +91,13 @@
     "genre": " Aventure - Fantastique - School Life",
     "end_publication_vo": 2011,
     "end_publication_vf": 2012,
-    "quantite_possede": 1,
-    "volumes_possede": 9,
+    "quantite_possede": 3,
+    "volumes_possede": "1, 4, 9",
     "volumes_total_vo": 9,
     "volumes_total_vf": 9,
     "status_vo": "Terminé",
     "status_vf": "Terminé",
-    "commentaire": "Manque de pot, j'ai que le dernier"
+    "commentaire": "J'ai enfin le premier. j'ai juste pas trouvé le 2 et 3, juste le 1 et 4"
   },
   {
     "id": "6",
